@@ -1,26 +1,16 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
-import Button from './src/components/Button';
+import {RecoilRoot} from 'recoil';
+import CounterScreen from './src/screens/CounterScreen';
+
+//The root component is wrapped around RecoilRoot
+//to act as a global context provider
 
 const App = () => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.count}>Count: </Text>
-      <Button text={'Increment'} />
-    </View>
+    <RecoilRoot>
+      <CounterScreen />
+    </RecoilRoot>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  count: {
-    fontSize: 20,
-    fontWeight: '600',
-  },
-});
 
 export default App;
