@@ -1,26 +1,16 @@
-import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
-import Button from './src/components/Button';
+import React, {useState} from 'react';
+import CounterScreen from './src/screens/CounterScreen';
+import appContext from './src/context/Context';
 
+//Provider inside the function App provides the capability to access context which wrapped from it.
+//It provides the data and functions to pass down to all the components.
 const App = () => {
+  const [count, setCount] = useState(0);
   return (
-    <View style={styles.container}>
-      <Text style={styles.count}>Count: </Text>
-      <Button text={'Increment'} />
-    </View>
+    <appContext.Provider value={{count, setCount}}>
+      <CounterScreen />
+    </appContext.Provider>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  count: {
-    fontSize: 20,
-    fontWeight: '600',
-  },
-});
 
 export default App;
