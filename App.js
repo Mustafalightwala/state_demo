@@ -1,26 +1,15 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
-import Button from './src/components/Button';
+import {Provider} from 'react-redux';
+import {createStore} from 'redux';
+import reducers from './src/reducers/CounterReducer';
+import CounterScreen from './src/screens/CounterScreen';
 
 const App = () => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.count}>Count: </Text>
-      <Button text={'Increment'} />
-    </View>
+    <Provider store={createStore(reducers)}>
+      <CounterScreen />
+    </Provider>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  count: {
-    fontSize: 20,
-    fontWeight: '600',
-  },
-});
 
 export default App;
