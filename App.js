@@ -1,26 +1,8 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
-import Button from './src/components/Button';
+import CounterScreen from './src/screens/CounterScreen';
+import CounterStore from './src/store/CounterStore';
 
-const App = () => {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.count}>Count: </Text>
-      <Button text={'Increment'} />
-    </View>
-  );
-};
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  count: {
-    fontSize: 20,
-    fontWeight: '600',
-  },
-});
+//Passing down the state to be used by component that subscribe to it.
+const App = () => <CounterScreen store={CounterStore} />;
 
 export default App;
